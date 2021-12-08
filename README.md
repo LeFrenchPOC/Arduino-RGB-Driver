@@ -1,4 +1,9 @@
 <h1 align="center">Welcome to RGB Driver 👋</h1>
+<p>
+  <a href="https://github.com/LeFrenchPOC/Arduino-RGB-Driver/blob/main/LICENSE" target="_blank">
+    <img alt="License: GPL--3.0" src="https://img.shields.io/badge/License-GPL--3.0-yellow.svg" />
+  </a>
+</p>
 
 > Arduino and ESP library to drive RGB LEDs with non-blocking functions
 
@@ -32,6 +37,7 @@ void loop() {
 👤 **Le French POC**
 
 * Github: [@LeFrenchPOC](https://github.com/LeFrenchPOC)
+* Website: [https://www.lefrenchpoc.fr/](https://www.lefrenchpoc.fr/)
 
 ## Show your support
 
