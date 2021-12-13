@@ -6,7 +6,7 @@
  * @date 2021-12-07
  */
 
-#if ESP32 || ESP8266
+#if ESP32
 #include <esp32-hal.h>
 #endif
 #include "rgb.h"
@@ -24,9 +24,13 @@ RGB::RGB(std::array<uint8_t, 3> rgbPins, uint8_t rChannel, uint8_t gChannel, uin
     this->m_pins = rgbPins;
     this->timeIndex = micros();
     for (uint8_t i = 0; i < 3; i++) {
-        #if ESP32 || ESP8266
+        #if ESP32
         ledcSetup(this->m_channels[i], 10000, 10);
         ledcAttachPin(rgbPins[i], this->m_channels[i]);
+        #elif ESP8266
+        pinMode(rgbPins[i], OUTPUT);
+        analogWriteFreq(10000);
+        analogWriteResolution(10);
         #elif __AVR__
         pinMode(rgbPins[i], OUTPUT);
         #endif
@@ -38,9 +42,7 @@ RGB::RGB(std::array<uint8_t, 3> rgbPins, uint8_t rChannel, uint8_t gChannel, uin
  * @brief Destroy the RGB::RGB object
  */
 RGB::~RGB() {
-    this->m_color = nullptr;
-    this->m_channels = nullptr;
-    #if ESP32 || ESP8266
+    #if ESP32
     for(uint8_t pin: this->m_pins) {
         ledcDetachPin(pin);
     }
@@ -121,8 +123,10 @@ void RGB::updateLight() {
 void RGB::updateParams(std::array<uint16_t, 3> newColors) {
     for (uint8_t i = 0; i < 3; i++) {
         if (newColors[i] != this->lastColor[i]) {
-            #if ESP32 || ESP8266
+            #if ESP32
             ledcWrite(this->m_channels[i], newColors[i]);
+            #elif ESP8266
+            analogWrite(this->m_pins[i], newColors[i]);
             #elif __AVR__
             analogWrite(this->m_pins[i], (uint8_t) newColors[i]);
             #endif
