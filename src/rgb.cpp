@@ -31,8 +31,6 @@ RGB::RGB(std::array<uint8_t, 3> rgbPins, uint8_t rChannel, uint8_t gChannel, uin
         pinMode(rgbPins[i], OUTPUT);
         analogWriteFreq(10000);
         analogWriteResolution(10);
-        #elif __AVR__
-        pinMode(rgbPins[i], OUTPUT);
         #endif
     }
     stopLight();
@@ -45,6 +43,10 @@ RGB::~RGB() {
     #if ESP32
     for(uint8_t pin: this->m_pins) {
         ledcDetachPin(pin);
+    }
+    #elif ESP8266
+    for(uint8_t pin: this->m_pins) {
+	analogWrite(pin, 0);
     }
     #endif
 }
@@ -127,8 +129,6 @@ void RGB::updateParams(std::array<uint16_t, 3> newColors) {
             ledcWrite(this->m_channels[i], newColors[i]);
             #elif ESP8266
             analogWrite(this->m_pins[i], newColors[i]);
-            #elif __AVR__
-            analogWrite(this->m_pins[i], (uint8_t) newColors[i]);
             #endif
             this->lastColor[i] = newColors[i];
         }

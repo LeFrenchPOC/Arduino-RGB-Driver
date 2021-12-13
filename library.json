@@ -2,14 +2,14 @@
     "name": "RGB",
     "version": "0.1",
     "keywords": "led, light, rgb",
-    "description": "Arduino and ESP library to drive RGB LEDs with non-blocking functions.",
+    "description": "Arduino and ESP library to drive (colors changes and blink) RGB LEDs with non-blocking functions.",
     "repository":
     {
         "type": "git",
         "url": "https://github.com/LeFrenchPOC/Arduino-RGB-Driver.git"
     },
     "frameworks": "arduino",
-    "platforms": ["espressif8266", "espressif32", "atmelavr"],
+    "platforms": ["espressif8266", "espressif32"],
     "authors":
     [
         {

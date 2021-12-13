@@ -12,11 +12,7 @@
 #include <array>
 #include <Arduino.h>
 
-#if ESP32 || ESP8266
 #define EIGHTB_COLOR_INTENS_TO_TENB(color,intens)       ((uint16_t)((float)map(color, 0, 255, 0, 1023)*((float)intens/255)))
-#elif
-#define EIGHTB_COLOR_INTENS_TO_TENB(color,intens)       ((uint16_t)((float)color*((float)intens/255)))
-#endif
 
 /**
  * @brief Structure of LEDs parameters
