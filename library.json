@@ -1,7 +1,7 @@
 {
-    "name": "RGB",
+    "name": "RGB Driver ESP",
     "version": "0.1",
-    "keywords": "led, light, rgb",
+    "keywords": "led, light, rgb, esp, esp32, esp8266",
     "description": "Arduino and ESP library to drive (colors changes and blink) RGB LEDs with non-blocking functions.",
     "repository":
     {
@@ -13,7 +13,7 @@
     "authors":
     [
         {
-            "name": "Le French POC",
+            "name": "LeFrenchPOC",
             "maintainer": true
         }
     ]
