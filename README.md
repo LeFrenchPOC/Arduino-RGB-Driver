@@ -8,7 +8,7 @@
 > Arduino and ESP library to drive RGB LEDs (colors changes and blink) with non-blocking functions
 
 ## What is implemented ?
-- Non blocking timings calculation
+- Non-blocking timings calculation
 - Very powerful
 - Red Green Blue and intensity
 
