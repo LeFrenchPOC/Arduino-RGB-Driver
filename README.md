@@ -15,6 +15,23 @@
 ## What is not implemented ?
 - Fading
 
+## Install
+Use the source files
+
+Install it with platform io : [https://platformio.org/lib/show/13307/RGB%20Driver%20ESP](https://platformio.org/lib/show/13307/RGB%20Driver%20ESP)
+```
+pio lib install "lefrenchpoc/RGB Driver ESP"
+```
+or with the `platformio.ini` file :
+
+```
+[env:myenv]
+platform = espressif8266
+framework = arduino
+
+lib_deps = lefrenchpoc/RGB Driver ESP @ ^0.1
+```
+
 ## Usage
 
 ```cpp
