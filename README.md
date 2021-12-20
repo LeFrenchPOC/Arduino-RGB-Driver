@@ -29,7 +29,7 @@ or with the `platformio.ini` file :
 platform = espressif8266
 framework = arduino
 
-lib_deps = lefrenchpoc/RGB Driver ESP @ ^0.1
+lib_deps = lefrenchpoc/RGB Driver ESP @ ^0.2
 ```
 
 ## Usage
